@@ -1,0 +1,55 @@
+# HuntailHunters Configuration File
+
+# General settings for the HuntailHunters plugin
+general:
+  # Should power-ups be enabled by default?
+  power_ups_enabled: true
+
+# Power-up settings
+power_ups:
+  # List of available power-ups
+  available:
+    - speed:
+        Duration: 600
+        Amplifier: 1
+    - jump_boost:
+        Duration: 600
+        Amplifier: 1
+    - extra_arrow
+
+messages:  # Message displayed when deleting an arena is confirmed
+  delete_confirmed: "Arena {arena} has been deleted successfully."
+  # Message displayed when deleting an arena is declined
+  delete_cancelled: "Arena deletion has been cancelled."
+  # Message to remind players about inventory check before joining the event
+  check_inventory: "Make sure not to bring any illegal items into the event."
+  # Message displayed when a player wins
+  winner_announcement: "Congratulations &l&b{winner}&f, you have won the round!"
+  # Message displayed when power-ups are enabled
+  power_ups_enabled: "Power-ups are enabled for this round."
+  # Message displayed when power-ups are disabled
+  power_ups_disabled: "Power-ups are disabled for this round."
+  # Message displayed when a power-up spawns
+  power_up_spawned: "A &6Power-Up&f has spawned nearby!"
+  # Message displayed when the game is starting
+  game_starting: "The game is starting soon. Get ready!"
+  #Message displayed when the game is ending
+  game_ending: "That was our last round, the game has ended. Hope you all had fun!"
+  # Message displayed when the game is forcibly stopped
+  game_forced_stop: "The game has been forcibly stopped by an administrator."
+  # Message displayed when a new round begins
+  round_start: "Round {round} has begun! Good luck to all players."
+  # Message displayed when a player receives a power-up
+  power_up_received: "You have received a {power_up} power-up!"
+
+
+# Arena settings
+arenas:
+
+
+# Stats settings
+stats:
+  # Path to store stats file
+  stats_file_path: "stats.yml"
+  # Should player statistics be tracked?
+  track_player_stats: true
