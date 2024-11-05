@@ -5,6 +5,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.AbstractArrow;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -321,7 +323,6 @@ public class HuntailHunters extends JavaPlugin implements Listener {
                     showPlayerStats(sender, playerName);
                     return true;
                 }
-
                 return false;
             }
         });
@@ -388,6 +389,7 @@ public class HuntailHunters extends JavaPlugin implements Listener {
 
                         Location location = deserializeLocation(locationString);
 
+
                         ItemStack powerUpItem = new ItemStack(Material.POTION);
                         ItemMeta meta = powerUpItem.getItemMeta();
                         if (meta != null) {
@@ -423,7 +425,7 @@ public class HuntailHunters extends JavaPlugin implements Listener {
                     int amplifier = config.getInt("power_ups.speed.Amplifier", 1);
                     player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, amplifier));
                     player.sendMessage("§6You have been given a §l§bSPEED BOOST§f§6!§f");
-                }else if (number == 1){
+                }else if (number == 1 ){
                     int duration = config.getInt("power_ups.speed.Duration", 600);
                     int amplifier = config.getInt("power_ups.speed.Amplifier", 1);
                     player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, duration, amplifier));
@@ -433,8 +435,8 @@ public class HuntailHunters extends JavaPlugin implements Listener {
                     player.sendMessage("§6You have been given an §l§dEXTRA ARROW§f§6!§f");
                 }
             }
+         }
     }
-}
 
     // Handling player death event to give arrows
     @EventHandler
@@ -551,17 +553,22 @@ public class HuntailHunters extends JavaPlugin implements Listener {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
             ItemStack arrowItem = event.getConsumable();
-            if(activeGame) {
+            if (activeGame) {
                 if (arrowItem != null && arrowItem.getItemMeta() != null) {
                     String displayName = arrowItem.getItemMeta().getDisplayName();
                     if (!"§5Event Arrow".equals(displayName)) {
                         event.setCancelled(true);
                         player.sendMessage("You can only use the special event arrows!");
+                    } else {
+                        if (event.getProjectile() instanceof Arrow) {
+                            ((Arrow) event.getProjectile()).setPickupStatus(AbstractArrow.PickupStatus.CREATIVE_ONLY);
+                        }
                     }
                 }
             }
         }
     }
+
 
     // Method to stop a game
     public void endGame(String arenaName) {
