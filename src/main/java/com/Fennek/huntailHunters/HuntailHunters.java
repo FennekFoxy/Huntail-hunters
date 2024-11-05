@@ -498,9 +498,7 @@ public class HuntailHunters extends JavaPlugin implements Listener {
             for (UUID playerUUID : joinedPlayers) {
                 Player player = Bukkit.getPlayer(playerUUID);
                 if (player != null) {
-                    player.teleport(arena.getSpawnPoint()); // Teleport the player to the arena
-
-                    // Check if player already has the Event Sword
+                     // Check if player already has the Event Sword
                     boolean hasSword = player.getInventory().contains(Material.IRON_SWORD, 1);
                     if (!hasSword) {
                         ItemStack sword = new ItemStack(Material.IRON_SWORD, 1);
