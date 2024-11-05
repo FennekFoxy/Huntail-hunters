@@ -56,6 +56,12 @@ permissions:
   huntailhunters.create:
     description: Allows the player to create a new arena.
     default: op
+  huntailhunters.spawn:
+    description: Allows the player to change spawn in an arena.
+    default: op
+  huntailhunters.powerup:
+    description: Allows the player to add powerup spawns to an arena.
+    default: op
   huntailhunters.start:
     description: Allows the player to start a game in an arena.
     default: op
