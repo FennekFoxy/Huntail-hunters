@@ -388,7 +388,6 @@ public class HuntailHunters extends JavaPlugin implements Listener {
 
                         Location location = deserializeLocation(locationString);
 
-                        // Drop an item at the location (e.g., empty bottle with metadata)
                         ItemStack powerUpItem = new ItemStack(Material.POTION);
                         ItemMeta meta = powerUpItem.getItemMeta();
                         if (meta != null) {
