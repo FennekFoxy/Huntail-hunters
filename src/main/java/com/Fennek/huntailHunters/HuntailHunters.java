@@ -90,6 +90,7 @@ public class HuntailHunters extends JavaPlugin implements Listener {
                     sender.sendMessage("§e/huntailhunters stats <IGN> §7- Show statistics for the specified player, or yourself if not specified.");
                     sender.sendMessage("§e/huntailhunters round <arena> <round_number> start <true/false> §7- Start a round in the specified arena with a given round number and power-ups.");
                     sender.sendMessage("§e/huntailhunters powerup <arena> <x> <y> <z> <powerup_name> §7- Add a power-up location to the specified arena.");
+
                     return true;
                 }
 
@@ -238,17 +239,6 @@ public class HuntailHunters extends JavaPlugin implements Listener {
                             player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 9));
                         }
                     }
-                    return true;
-                }
-
-                // Handle stop game command
-                if (args[0].equalsIgnoreCase("end")) {
-                    if (args.length < 2) {
-                        sender.sendMessage("Usage: /huntailhunters end <arena>");
-                        return true;
-                    }
-                    String arenaName = args[1];
-                    endGame(arenaName);
                     return true;
                 }
 
