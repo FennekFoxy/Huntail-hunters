@@ -557,15 +557,6 @@ public class HuntailHunters extends JavaPlugin implements Listener {
         }
     }
 
-
-    // Method to stop a game
-    public void endGame(String arenaName) {
-        if (activeGame) {
-            announceMessage(config.getString("messages.game_ending"));
-            activeGame = false;
-        }
-    }
-
     // Method to stop a game
     public void stopGame(String arenaName) {
         if (activeGame) {
